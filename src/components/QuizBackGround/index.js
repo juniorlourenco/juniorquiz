@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const QuizBackground = styled.div`
   width: 100%;
   background-size: cover;
