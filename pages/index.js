@@ -42,7 +42,7 @@ export default function Home() {
             <Widget.Header>
               <h1>Quiz sobre Zelda</h1>
             </Widget.Header>
-            <p>lorem ipsum dolor sit amet...</p>
+            <p>lorem ipsum dolor sit amet.</p>
           </Widget.Content>
         </Widget>
         <Footer />
