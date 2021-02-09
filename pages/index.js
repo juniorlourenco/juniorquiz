@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import {useRouter} from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -30,18 +31,30 @@ export default function Home() {
       </Head>
       <QuizContainer>
         <Widget>
-          <Widget.Content>
+          
             <Widget.Header>
               <h1>The Legend of Zelda</h1>
             </Widget.Header>
-            <p>lorem ipsum dolor sit amet...</p>
+            <Widget.Content>
+              <form onSubmit={ function(e) {
+                infosDoEvento.preventDefault();
+
+                console.log('Fazendo uma submissão por meio do react');
+              }}
+              //router manda para a próxima página
+              >
+                <input placeholer="Diz aí seu nome" />
+                <button type="submit">
+                  Jogar [seuNome]
+                </button>
+              </form>
           </Widget.Content>
         </Widget>
         <Widget>
+          <Widget.Header>
+            <h1>Quiz sobre Zelda</h1>
+          </Widget.Header>
           <Widget.Content>
-            <Widget.Header>
-              <h1>Quiz sobre Zelda</h1>
-            </Widget.Header>
             <p>lorem ipsum dolor sit amet.</p>
           </Widget.Content>
         </Widget>
