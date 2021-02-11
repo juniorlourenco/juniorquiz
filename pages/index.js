@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
+
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -36,12 +37,15 @@ export default function Home() {
               <h1>The Legend of Zelda</h1>
             </Widget.Header>
             <Widget.Content>
-              <form onSubmit={ function(e) {
+              <form onSubmit={ function(event) {
                 infosDoEvento.preventDefault();
-
+                const name = 'Paulo';
+                const router = useRouter();
+                router.push(`/quiz?name=${name}`);
                 console.log('Fazendo uma submissão por meio do react');
-              }}
+              
               //router manda para a próxima página
+              }}
               >
                 <input placeholer="Diz aí seu nome" />
                 <button type="submit">
