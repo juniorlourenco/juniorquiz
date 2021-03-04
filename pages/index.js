@@ -9,6 +9,7 @@ import QuizBackground from '../src/components/QuizBackGround';
 import QuizLogo from '../src/components/QuizLogo';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
+import Input from '../src/components/Input';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -43,7 +44,7 @@ export default function Home() {
               console.log('Fazendo uma submissão por meio do react');
             }}
             >
-              <input
+              <Input
                 onChange={function (infosDoEvento) {
                   console.log(infosDoEvento.target.value);
                   // State
