@@ -113,7 +113,7 @@ export default function QuizPage() {
     function handleSubmitQuiz () {
         const nextQuestion = questionIndex + 1;
         if (nextQuestion < totalQuestions) {
-            setCurrentQuestion(questionIndex + 1);
+            setCurrentQuestion(nextQuestion);
         } else {setScreenState(screenStates.RESULT);
         }
     };
