@@ -22,7 +22,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   const router = useRouter();
-  const name = 'Paulo';
+  const name = React.useState('');
   
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -48,8 +48,12 @@ export default function Home() {
               //router manda para a próxima página
               }}
               >
-                <input placeholer="Diz aí seu nome" />
-                <button type="submit">
+                <input 
+                onChange={function (infosDoEvento){
+                  name = infosDoEvento.target.value;
+                }}
+                placeholer="Diz aí seu nome" />
+                <button type="submit" disabled={name.length === 0}>
                   Jogar 
                   {name}
                 </button>
