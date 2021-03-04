@@ -21,6 +21,7 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <Head>
         <title>Junior Quiz</title>
+        <script data-ad-client="ca-pub-8951451464587105" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </Head>
       <QuizContainer>
         <QuizLogo />
