@@ -5,9 +5,9 @@ import {useRouter} from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
+import QuizBackground from '../src/components/QuizBackGround';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
-import QuizBackground from '../src/components/QuizBackGround';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -23,50 +23,47 @@ export const QuizContainer = styled.div`
 export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
-  console.log('retorno do useState', name, setName);
-  
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
         <title>Junior Quiz</title>
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
-        <meta property="og:title" content="Junior Quiz"/>
-        <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"></meta>
       </Head>
       <QuizContainer>
-        <Widget>
-          
-            <Widget.Header>
-              <h1>The Legend of Zelda</h1>
-            </Widget.Header>
-            <Widget.Content>
-              <form onSubmit={ function(infosDoEvento) {
-                infosDoEvento.preventDefault();
-                router.push(`/quiz?name=${name}`);
-                console.log('Fazendo uma submissão por meio do react');
-              
-              //router manda para a próxima página
-              }}
-              >
-                <input 
-                  onChange={function (infosDoEvento){
-                  setName(infosDoEvento.target.value);
-                }}
-                placeholer="Diz aí seu nome" />
-                <button type="submit" disabled={name.length === 0}>
-                  Jogar 
-                  {name}
-                </button>
-              </form>
-          </Widget.Content>
-        </Widget>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>Quiz sobre Zelda</h1>
+            <h1>The legend of zelda</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>lorem ipsum dolor sit amet.</p>
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.push(`/quiz?name=${name}`);
+              console.log('Fazendo uma submissão por meio do react');
+            }}
+            >
+              <input
+                onChange={function (infosDoEvento) {
+                  console.log(infosDoEvento.target.value);
+                  // State
+                  // name = infosDoEvento.target.value;
+                  setName(infosDoEvento.target.value);
+                }}
+                placeholder="Diz ai seu nome"
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
+              </button>
+            </form>
+          </Widget.Content>
+        </Widget>
+
+        <Widget>
+          <Widget.Content>
+            <h1>Quizes da Galera</h1>
+
+            <p>lorem ipsum dolor sit amet...</p>
           </Widget.Content>
         </Widget>
         <Footer />
