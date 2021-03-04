@@ -21,6 +21,9 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const name = 'Paulo';
+  
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -37,10 +40,8 @@ export default function Home() {
               <h1>The Legend of Zelda</h1>
             </Widget.Header>
             <Widget.Content>
-              <form onSubmit={ function(event) {
+              <form onSubmit={ function(infosDoEvento) {
                 infosDoEvento.preventDefault();
-                const name = 'Paulo';
-                const router = useRouter();
                 router.push(`/quiz?name=${name}`);
                 console.log('Fazendo uma submissão por meio do react');
               
@@ -49,7 +50,8 @@ export default function Home() {
               >
                 <input placeholer="Diz aí seu nome" />
                 <button type="submit">
-                  Jogar [seuNome]
+                  Jogar 
+                  {name}
                 </button>
               </form>
           </Widget.Content>
