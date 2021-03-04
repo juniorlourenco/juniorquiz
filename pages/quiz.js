@@ -86,7 +86,7 @@ const screenStates = {
 };
 
 export default function QuizPage() {
-    const screenState =screenStates.QUIZ;
+    const [screenState, setScreenState] = React.useState(screenStates.LOADING);
     const totalQuestions = db.questions.length;
     const questionIndex = 0;
     const question = db.questions[questionIndex];
@@ -95,6 +95,13 @@ export default function QuizPage() {
     //componente nasce === didMount
     //componente atualiza === willUpdate
     //componente morre === willUnmount
+    
+    React.useEffect(() => {
+        //fetch() ...
+        setTimeout(() => {
+            setScreenState(screenStates.QUIZ);
+        }, 1* 1000)
+    }, []);
 
     return (
         <QuizBackGround backgroundImage={db.bg}>
